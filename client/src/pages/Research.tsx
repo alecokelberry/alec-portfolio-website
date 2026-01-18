@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { FaFlask, FaChartLine, FaMicrophoneAlt, FaExternalLinkAlt, FaDatabase, FaCogs, FaCheckCircle } from 'react-icons/fa';
+import { FaFlask, FaChartLine, FaMicrophoneAlt, FaExternalLinkAlt, FaCogs, FaCheckCircle } from 'react-icons/fa';
 
 interface ResearchProject {
   id: number;

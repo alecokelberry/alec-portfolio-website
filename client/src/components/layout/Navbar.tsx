@@ -9,27 +9,39 @@ const Navbar = () => {
 
   const links = [
     { name: 'Home', path: '/' },
-    { name: 'About', path: '/about' },
+    { name: 'Education', path: '/education' },
+    { name: 'Experience', path: '/experience' },
     { name: 'Projects', path: '/projects' },
-    { name: 'Resume', path: '/resume' },
+    { name: 'Research', path: '/research' },
+    { name: 'Skills', path: '/skills' },
+    { name: 'Awards', path: '/awards' },
     { name: 'Contact', path: '/contact' },
   ];
+
+  // Logic to scroll to top on route change (optional but good for SPA)
+  React.useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
 
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <nav className="fixed w-full bg-white/80 backdrop-blur-md shadow-sm z-50">
+    <nav className="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <Link to="/" className="text-xl font-bold text-gray-900">
+          <Link 
+            to="/" 
+            className="text-xl font-bold text-gray-900"
+            onClick={() => window.scrollTo(0, 0)}
+          >
             Alec Okelberry
           </Link>
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
+          <div className="hidden lg:block">
+            <div className="ml-4 flex items-baseline space-x-1 lg:space-x-4">
               {links.map((link) => (
-                <Link
+                <Link // Changed from <a> to <Link> which works with react-router-dom for internal links/hashes
                   key={link.name}
                   to={link.path}
                   className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
@@ -45,7 +57,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden">
+          <div className="lg:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-gray-900 p-2"
@@ -63,7 +75,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden bg-white border-t"
+            className="lg:hidden bg-white border-t"
           >
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
               {links.map((link) => (

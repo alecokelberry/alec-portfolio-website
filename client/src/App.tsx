@@ -3,10 +3,15 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Layout from './components/layout/Layout';
 
 import Home from './pages/Home';
-import About from './pages/About';
 import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
+
+import Education from './pages/Education';
+import Experience from './pages/Experience';
+import Research from './pages/Research';
+import Skills from './pages/Skills';
+import Awards from './pages/Awards';
 
 function App() {
   return (
@@ -14,7 +19,11 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/experience" element={<Experience />} />
+          <Route path="/research" element={<Research />} />
+          <Route path="/skills" element={<Skills />} />
+          <Route path="/awards" element={<Awards />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />

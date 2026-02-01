@@ -7,11 +7,7 @@ import Projects from './pages/Projects';
 import Resume from './pages/Resume';
 import Contact from './pages/Contact';
 
-import Education from './pages/Education';
-import Experience from './pages/Experience';
-import Research from './pages/Research';
-import Skills from './pages/Skills';
-import Awards from './pages/Awards';
+import About from './pages/About';
 
 function App() {
   return (
@@ -19,14 +15,16 @@ function App() {
       <Layout>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/education" element={<Education />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/research" element={<Research />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/awards" element={<Awards />} />
+          <Route path="/about" element={<About />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/resume" element={<Resume />} />
           <Route path="/contact" element={<Contact />} />
+          {/* Redirect old routes to /about for better UX */}
+          <Route path="/education" element={<About />} />
+          <Route path="/experience" element={<About />} />
+          <Route path="/research" element={<About />} />
+          <Route path="/skills" element={<About />} />
+          <Route path="/awards" element={<About />} />
         </Routes>
       </Layout>
     </Router>
